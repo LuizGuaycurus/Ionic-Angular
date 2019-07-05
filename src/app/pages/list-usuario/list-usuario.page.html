@@ -1,15 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>list-usuario</ion-title>
+    <ion-title>Lista de Usuário</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button color="danger" routerLink="/tabs/addUsuario"> 
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" routerLink="/tabs/addUsuario">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list *ngIf="usuarios | async as users">
+    <ion-item *ngFor="let user of users">
+      <ion-text>
+        {{user.nome}} - {{user.email}}
+      </ion-text>
+      <ion-note> {{user.key}}</ion-note>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
