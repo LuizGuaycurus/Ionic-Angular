@@ -13,7 +13,7 @@ export class UsuarioService {
   ) { }
 
   save(usuario: Usuario) {
-    return this.db.list("usuario").push(usuario);
+    return this.db.list<Usuario>("usuario").push(usuario);
   }
 
   getAll() {
@@ -22,6 +22,10 @@ export class UsuarioService {
         map(noCopyIsDocs =>
           noCopyIsDocs.map(c => ({ key: c.payload.key, ...c.payload.val() })))
       )
+  }
+
+  get(key: string) {
+    return this.db.object<Usuario>("usuario/" + key).valueChanges()
   }
 
 }

@@ -13,7 +13,7 @@
   </ion-fab>
 
   <ion-list *ngIf="usuarios | async as users">
-    <ion-item *ngFor="let user of users">
+    <ion-item *ngFor="let user of users" routerLink="/tabs/perfilUsuario/{{user.key}}">
       <ion-text>
         {{user.nome}} - {{user.email}}
       </ion-text>
