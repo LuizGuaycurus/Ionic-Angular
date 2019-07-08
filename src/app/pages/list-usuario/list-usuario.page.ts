@@ -19,4 +19,16 @@ export class ListUsuarioPage implements OnInit {
     this.usuarios = this.usuarioService.getAll();
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+  
+  atualizar(){}
+
+  remover(){}
 }
