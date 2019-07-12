@@ -12,9 +12,10 @@
       <ion-label>Usuários</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
+    <ion-tab-button tab="listEvento">
       <ion-icon name="send"></ion-icon>
-      <ion-label>Organizadores</ion-label>
+      <ion-badge color="danger" *ngIf="nuser != 0">{{nevents}}</ion-badge>
+      <ion-label>Eventos</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="evento.nome" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tema</ion-label>
+      <ion-input type="text" name="tema" [(ngModel)]="evento.tema" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data</ion-label>
+      <ion-datetime display-format="DD.MM.YYYY" name="data" [(ngModel)]="evento.data" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Horário</ion-label>
+      <ion-datetime display-format="HH:MM" name="horario" [(ngModel)]="evento.horario" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Local</ion-label>
+      <ion-input type="text" name="local" [(ngModel)]="evento.local" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button type="submit" [disabled]="fc.invalid">Salvar</ion-button>
+      <ion-button type="reset" routerLink="/">Cancelar</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

@@ -44,14 +44,33 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'listEvento',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../pages/list-evento/list-evento.module#ListEventoPageModule'
           }
         ]
       },
+      {
+        path: 'addEvento',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/add-evento/add-evento.module#AddEventoPageModule'
+          }
+        ]
+      },
+      {
+        path: 'perfilEvento/:key',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/perfil-evento/perfil-evento.module#PerfilEventoPageModule'
+          }
+        ]
+      },
+      
       {
         path: '',
         redirectTo: '/tabs/tab1',
