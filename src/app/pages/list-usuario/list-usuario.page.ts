@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 import { UsuarioService } from './../../services/usuario.service';
+import { present } from '@ionic/core/dist/types/utils/overlays';
 
 @Component({
   selector: 'app-list-usuario',
@@ -12,7 +14,8 @@ export class ListUsuarioPage implements OnInit {
   protected usuarios: any;
 
   constructor(
-    public usuarioService: UsuarioService
+    public usuarioService: UsuarioService,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -28,7 +31,26 @@ export class ListUsuarioPage implements OnInit {
     }, 2000);
   }
   
-  atualizar(){}
+  remover(key){
+    this.usuarioService.remove(key).then(
+      res=>{
+        this.presentAlert("Aviso!", "Usuario apagado!");
+      },
+      err=>{
+        this.presentAlert("Erro!", "Não foi possivel apagar o usuario!");
+      }
+    )
+  }
 
-  remover(){}
+  async presentAlert(titulo: string, texto: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      //subHeader: 'Subtitle',
+      message: texto,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }
