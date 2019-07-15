@@ -1,5 +1,7 @@
 {
   "name": "ionic-festinhas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

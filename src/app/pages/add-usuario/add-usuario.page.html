@@ -5,6 +5,11 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-item lines="none">
+    <img src="assets/perfil.jpg" alt="" (click)="tirarFoto()" *ngIf="preview == null">
+    <img [src]="preview" alt="" (click)="tirarFoto()" *ngIf="preview != null">
+  </ion-item>
+
   <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
     <ion-item>
       <ion-label position="floating">Nome</ion-label>

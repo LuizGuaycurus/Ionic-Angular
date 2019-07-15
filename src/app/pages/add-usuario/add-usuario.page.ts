@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 import { Usuario } from './../../model/usuario';
 import { UsuarioService } from './../../services/usuario.service';
@@ -14,12 +15,14 @@ export class AddUsuarioPage implements OnInit {
 
   public usuario: Usuario;
   public key: string;
+  protected preview: any;
 
   constructor(
     public alertController: AlertController,
     public router: Router,
     public usuarioService: UsuarioService,
-    public activeRouter: ActivatedRoute
+    public activeRouter: ActivatedRoute,
+    private camera: Camera
   ) { }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class AddUsuarioPage implements OnInit {
   onSubmit(form) {
     if (form.valid) {
       if (!this.key) {
+        this.usuario.foto = this.preview;
         this.usuarioService.save(this.usuario)
           .then(
             res => {
@@ -47,7 +51,7 @@ export class AddUsuarioPage implements OnInit {
               this.presentAlert("Epa!", "Erro ao cadastrar!");
             }
           ).catch(
-            err=>{
+            err => {
               this.presentAlert("Erro!", "Ao acessar ao sistema!");
               this.router.navigate(['/']);
             }
@@ -64,7 +68,7 @@ export class AddUsuarioPage implements OnInit {
               this.presentAlert("Epa!", "Erro ao atualizar!");
             }
           ).catch(
-            err=>{
+            err => {
               this.presentAlert("Erro!", "Ao acessar ao sistema!");
               this.router.navigate(['/']);
             }
@@ -82,6 +86,23 @@ export class AddUsuarioPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  tirarFoto() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.preview = base64Image;
+    }, (err) => {
+      // Handle error
+    });
   }
 
 }
