@@ -30,7 +30,10 @@ export class AddUsuarioPage implements OnInit {
     this.key = this.activeRouter.snapshot.paramMap.get("key");
     if (this.key) {
       this.usuarioService.get(this.key).subscribe(
-        res => this.usuario = res,
+        res =>{
+         this.usuario = res
+         this.preview = res.foto
+        },  
         err => this.key = null
       );
     }
@@ -38,8 +41,8 @@ export class AddUsuarioPage implements OnInit {
 
   onSubmit(form) {
     if (form.valid) {
+      this.usuario.foto = this.preview;
       if (!this.key) {
-        this.usuario.foto = this.preview;
         this.usuarioService.save(this.usuario)
           .then(
             res => {
