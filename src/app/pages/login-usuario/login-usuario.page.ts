@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { MensagensService } from 'src/app/services/mensagens.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-usuario',
@@ -15,11 +16,13 @@ export class LoginUsuarioPage implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
-    public msg:MensagensService
+    public msg:MensagensService,
+    public router: Router
   ) { }
 
   ngOnInit() {
   }
+
   onSubmit(form){
     if(form.valid){
       this.login();
@@ -29,7 +32,17 @@ export class LoginUsuarioPage implements OnInit {
   }
 
   login(){
-    this.afAuth.auth.signInWithEmailAndPassword(this.email,this.pws);
+    this.afAuth.auth.signInWithEmailAndPassword(this.email,this.pws).then(
+      res=>{
+        this.router.navigate(['/']);
+        console.log(res.user.uid);
+      },
+      err=>{
+        // this.email = null;
+        // this.pws = null;
+        this.msg.presentAlert("Erro!", "Usuario não localizado");
+      }
+    );
   }
 
   loginWeb() {
