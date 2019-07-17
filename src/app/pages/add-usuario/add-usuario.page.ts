@@ -27,6 +27,7 @@ export class AddUsuarioPage implements OnInit {
 
   ngOnInit() {
     this.usuario = new Usuario;
+    this.preview = null;
     this.key = this.activeRouter.snapshot.paramMap.get("key");
     if (this.key) {
       this.usuarioService.get(this.key).subscribe(
