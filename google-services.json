@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "769837439161",
+    "firebase_url": "https://ionic-festinhas.firebaseio.com",
+    "project_id": "ionic-festinhas",
+    "storage_bucket": "ionic-festinhas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769837439161:android:987af375d8babc8d",
+        "android_client_info": {
+          "package_name": "com.cadaumcomcadaum.festinha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769837439161-2o4f0duaa39au0rpommpr6fn76bbj6cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsomlkd3acLWMynucff8ixfonCevrEZE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769837439161-2o4f0duaa39au0rpommpr6fn76bbj6cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

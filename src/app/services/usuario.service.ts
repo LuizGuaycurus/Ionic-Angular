@@ -12,8 +12,9 @@ export class UsuarioService {
     public db: AngularFireDatabase
   ) { }
 
-  save(usuario: Usuario) {
-    return this.db.list<Usuario>("usuario").push(usuario);
+  save(usuario: Usuario, key: string) {
+    // return this.db.list<Usuario>("usuario").push(usuario);
+    return this.db.object<Usuario>("usuario/" + key).set(usuario);
   }
 
   getAll() {
