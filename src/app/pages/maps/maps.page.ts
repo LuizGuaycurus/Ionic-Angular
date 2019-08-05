@@ -8,8 +8,7 @@ import {
   GoogleMapOptions,
   CameraPosition,
   MarkerOptions,
-  Marker,
-  Environment
+  Marker
 } from '@ionic-native/google-maps';
 
 
@@ -37,6 +36,7 @@ export class MapsPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
+      this.addMarket();
       console.log(this.lat, "  ", this.lng);
     }).catch((error) => {
       console.log('Error getting location', error);
@@ -64,5 +64,28 @@ export class MapsPage implements OnInit {
       }
     };
     this.map = GoogleMaps.create('map_canvas', mapOptions);
+  }
+
+  //Google marker
+  marker: Marker;
+  mapClick() {
+    this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe(
+      res => {
+        //console.log(res);
+        if (this.marker) {
+          this.marker.setPosition(res[0]);
+        } else {
+          this.addMarket();
+        }
+      })
+  }
+
+  addMarket() {
+    this.marker = this.map.addMarkerSync({
+      position: {
+        lat: this.lat,
+        lng: this.lng
+      }
+    });
   }
 }
