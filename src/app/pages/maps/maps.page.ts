@@ -36,7 +36,6 @@ export class MapsPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
-      this.addMarket();
       console.log(this.lat, "  ", this.lng);
     }).catch((error) => {
       console.log('Error getting location', error);
