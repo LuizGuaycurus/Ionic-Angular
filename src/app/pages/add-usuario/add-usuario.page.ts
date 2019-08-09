@@ -49,7 +49,7 @@ export class AddUsuarioPage implements OnInit {
         this.afAuth.auth.createUserWithEmailAndPassword(this.usuario.email, this.usuario.pws)
           .then(
             res => {
-              this.usuario.email = null;
+              //this.usuario.email = null;
               this.usuario.pws = null;
               this.usuarioService.save(this.usuario, res.user.uid);
               this.presentAlert("Aviso", "Cadastrado!");
@@ -115,4 +115,3 @@ export class AddUsuarioPage implements OnInit {
   }
 
 }
-

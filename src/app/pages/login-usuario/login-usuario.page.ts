@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
 })
 export class LoginUsuarioPage implements OnInit {
 
-  protected email: string;
+  protected email:string;
   protected pws: string;
 
   constructor(
     public afAuth: AngularFireAuth,
-    public msg:MensagensService,
-    public router: Router
+    public msg : MensagensService,
+    public router : Router
   ) { }
+
+  
 
   ngOnInit() {
   }
@@ -26,8 +28,8 @@ export class LoginUsuarioPage implements OnInit {
   onSubmit(form){
     if(form.valid){
       this.login();
-    } else {
-      this.msg.presentAlert("Erro!", "Campos obrigatórios!");
+    } else{
+      this.msg.presentAlert("Erro!","Campos Obrigatórios");
     }
   }
 
@@ -40,17 +42,25 @@ export class LoginUsuarioPage implements OnInit {
       err=>{
         // this.email = null;
         // this.pws = null;
-        this.msg.presentAlert("Erro!", "Usuario não localizado");
+        this.msg.presentAlert("Erro","Usuário não localizado");
       }
     );
   }
 
   loginWeb() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
+      res=>{
+        this.router.navigate(['/']);
+        console.log(res.user.uid);
+      },
+      err=>{
+        // this.email = null;
+        // this.pws = null;
+        this.msg.presentAlert("Erro","Usuário não localizado");
+      }
+    );
   }
-
   logout() {
     this.afAuth.auth.signOut();
   }
-
 }

@@ -1,13 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista de Usuário</ion-title>
+    <ion-title>Listar Usuários</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="danger" routerLink="/tabs/addUsuario">
@@ -15,12 +12,15 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-list *ngIf="usuarios | async as users">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
+  <ion-list *ngIf="usuarios | async as users">
     <ion-item-sliding *ngFor="let user of users">
       <ion-item-options side="start">
-        <ion-item-option (click)="remover(user.key)" expandable color="danger">
-          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        <ion-item-option color="danger" (click)="remover(user.key)" expandable>
+            <ion-icon  name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
@@ -28,13 +28,12 @@
         <ion-text>
           {{user.nome}} - {{user.email}}
         </ion-text>
-        <ion-note> {{user.key}}</ion-note>
+        <ion-note> {{user.key}} </ion-note>
       </ion-item>
-
       <ion-item-options side="end">
-        <ion-item-option routerLink="/tabs/addUsuario/{{user.key}}" expandable>
-            <ion-icon slot="icon-only" name="create"></ion-icon>
-          </ion-item-option>
+        <ion-item-option  routerLink="/tabs/addUsuario/{{user.key}}" expandable>
+            <ion-icon  name="create"></ion-icon>
+        </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>

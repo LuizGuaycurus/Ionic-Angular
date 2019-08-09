@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { UsuarioService } from './../../services/usuario.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -11,7 +10,7 @@ import { UsuarioService } from './../../services/usuario.service';
 export class PerfilUsuarioPage implements OnInit {
 
   protected usuario: any;
-  protected key: string;
+  private key:string;
 
   constructor(
     public usuarioService: UsuarioService,
@@ -21,7 +20,6 @@ export class PerfilUsuarioPage implements OnInit {
   ngOnInit() {
     this.key = this.activeRouter.snapshot.paramMap.get("key");
     this.usuario = this.usuarioService.get(this.key);
-    
   }
 
 }

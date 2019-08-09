@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Evento } from 'src/app/model/evento';
 import { EventoService } from 'src/app/services/evento.service';
+import { Evento } from 'src/app/model/evento';
 
 @Component({
   selector: 'app-add-evento',
@@ -11,36 +11,39 @@ import { EventoService } from 'src/app/services/evento.service';
 })
 export class AddEventoPage implements OnInit {
 
-  public evento: Evento;
+  public evento: Evento
 
   constructor(
     public alertController: AlertController,
     public router: Router,
-    public eventoService: EventoService,
+    public eventoService: EventoService
   ) { }
 
   ngOnInit() {
     this.evento = new Evento;
   }
 
-  onSubmit(form) {
-    if (form.valid) {
-      // console.log("Cadastrado", this.evento);
-      this.eventoService.save(this.evento)
-        .then(
-          res => {
-            this.presentAlert("Aviso", "Cadastrado!");
-            form.reset();
-            this.router.navigate(['/']);
-          },
-          err=>{
-            this.presentAlert("Epa!", "Erro ao cadastrar!");
-          }
-        )
+  onSubmit(form){
+    if(form.valid){
+      //console.log("Cadastrado", this.usuario );
+      // then é como um então, tem dois resultados , um verdadeiro e um falso
+      this.eventoService.save(this.evento).then(
+        res=>{
+          this.presentAlert("Aviso","Cadastrado");
+          form.reset();
+          this.router.navigate(['/']);
+        },
+        err=>{
+          this.presentAlert("Epa!","Erro ao Cadastrar");
+        }
+      )
     }
   }
 
-  async presentAlert(titulo: string, texto: string) {
+
+
+
+  async presentAlert(titulo:string, texto:string) {
     const alert = await this.alertController.create({
       header: titulo,
       //subHeader: 'Subtitle',

@@ -1,35 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Cadastro de Eventos</ion-title>
+    <ion-title>Adicionar Evento</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
     <ion-item>
-      <ion-label position="floating">Nome</ion-label>
+      <ion-label position="floating">Nome da Festa</ion-label>
       <ion-input type="text" name="nome" [(ngModel)]="evento.nome" required></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label position="floating">Tema</ion-label>
+      <ion-label position="floating">Tema da Festa</ion-label>
       <ion-input type="text" name="tema" [(ngModel)]="evento.tema" required></ion-input>
+
+      <!-- <ion-text color="danger" *ngIf="e.invalid && e.dirty">
+        <strong>Email Inválido</strong>
+      </ion-text> -->
+
     </ion-item>
+
     <ion-item>
-      <ion-label position="floating">Data</ion-label>
-      <ion-datetime display-format="DD.MM.YYYY" name="data" [(ngModel)]="evento.data" required></ion-datetime>
+      <ion-label position="floating">Data da Festa</ion-label>
+      <ion-input type="text" name="data" [(ngModel)]="evento.data" required></ion-input>
     </ion-item>
+    <!-- <ion-text color="danger" *ngIf="p.invalid && p.dirty">
+      <strong>Senha muito curta!</strong>
+    </ion-text> -->
+
     <ion-item>
-      <ion-label position="floating">Horário</ion-label>
-      <ion-datetime display-format="HH:MM" name="horario" [(ngModel)]="evento.horario" required></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Local</ion-label>
-      <ion-input type="text" name="local" [(ngModel)]="evento.local" required></ion-input>
+      <ion-label position="floating">Horário da Festa</ion-label>
+      <ion-input type="text" name="horario" [(ngModel)]="evento.horario" required></ion-input>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-button type="submit" [disabled]="fc.invalid">Salvar</ion-button>
-      <ion-button type="reset" routerLink="/">Cancelar</ion-button>
+      <ion-button type="submit" shape="round" [disabled]="fc.invalid">
+        <ion-icon name="save"></ion-icon>&nbsp;Salvar
+      </ion-button>
+      <ion-button shape="round" type="reset" routerLink="/">Cancelar</ion-button>
     </ion-item>
+
   </form>
+
 </ion-content>

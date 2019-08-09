@@ -1,34 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login usuário</ion-title>
+    <ion-title>Login Usuário</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
+
     <ion-item>
       <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email" name="email" [(ngModel)]="email" required></ion-input>
+      <ion-input type="email" name="email" [(ngModel)]="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" name="pws" [(ngModel)]="pws" minlength="6" required></ion-input>
+      <ion-input type="password" name="pws" [(ngModel)]="pws" #p="ngModel" minlenght="6" required></ion-input>
     </ion-item>
+    <ion-text color="danger" *ngIf="p.invalid && p.dirty">
+      <strong>Senha muito curta!</strong>
+    </ion-text>
 
     <ion-item lines="none">
-      <ion-button type="submit" [disabled]="fc.invalid">Entrar</ion-button>
-      <ion-button type="reset" routerLink="/">Cancelar</ion-button>
+      <ion-button type="submit" shape="round" (click)="login()" [disabled]="fc.invalid">
+        <ion-icon name="save"></ion-icon>&nbsp;Login
+      </ion-button>
+
+      <ion-button expand="block" (click)="loginWeb()">
+        <ion-icon name="logo-googleplus"></ion-icon>Entrar com o Google
+      </ion-button>
     </ion-item>
+    <ion-button shape="round" type="reset" routerLink="/">Cancelar</ion-button>
+
   </form>
 
   <ion-button expand="block" fill="outline" (click)="logout()" routerLink="/">
     Sair
-  </ion-button>
-
-  <ion-button expand="block" fill="outline" (click)="loginWeb()" routerLink="/">
-    <ion-icon slot="start" name="logo-google"></ion-icon>
-    Entrar com Google
   </ion-button>
 
 </ion-content>

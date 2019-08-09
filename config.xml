@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cadaumcomcadaum.festinha" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>FestinhasFunFun</name>
-    <description>Mostra as festinhas da turminha</description>
-    <author email="fabianomoreira.prof@email.com" href="http://ionicframework.com/">Cada1ComCada1 Team</author>
+<widget id="com.festa.festadobrabo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Festa Do Brabo</name>
+    <description>Festas Brabas</description>
+    <author email="luizguaycurus@gmail.com" href="http://ionicframework.com/">Luiz O Brabo</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -99,6 +99,7 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDthqX6Yp9Sx3Hcm5kSt2-t0TFOSQwuM7A" />
-    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDthqX6Yp9Sx3Hcm5kSt2-t0TFOSQwuM7A" />
+
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBK86rt_4o-FCBs7vF_xG0I8zo633i7S_M" />
+  <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBK86rt_4o-FCBs7vF_xG0I8zo633i7S_M" />
 </widget>

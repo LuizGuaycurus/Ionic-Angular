@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDthqX6Yp9Sx3Hcm5kSt2-t0TFOSQwuM7A",
-    authDomain: "ionic-festinhas.firebaseapp.com",
-    databaseURL: "https://ionic-festinhas.firebaseio.com",
-    projectId: "ionic-festinhas",
-    storageBucket: "",
-    messagingSenderId: "769837439161",
-    appId: "1:769837439161:web:a11a14ba286668fd"
+    apiKey: "AIzaSyBK86rt_4o-FCBs7vF_xG0I8zo633i7S_M",
+    authDomain: "ionic-festadobrabo.firebaseapp.com",
+    databaseURL: "https://ionic-festadobrabo.firebaseio.com",
+    projectId: "ionic-festadobrabo",
+    storageBucket: "ionic-festadobrabo.appspot.com",
+    messagingSenderId: "490344396813",
+    appId: "1:490344396813:web:4cf8e16e26cbb347"
   }
 };
 

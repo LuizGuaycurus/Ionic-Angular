@@ -4,21 +4,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list *ngIf="evento | async as e">
-
+<ion-content>
+  <ion-list *ngIf="evento | async as event">
     <ion-item>
-      <ion-note> {{key}}</ion-note>
-    </ion-item>
-    
-    <ion-item>
-      <ion-text>
-        <h1>{{e.nome}}</h1>
-        <p>Tema: {{e.tema}}</p>
-        <p>Data: {{e.data}} </p>
-        <p>Horario: {{e.horario}}</p>
-      </ion-text>
-    </ion-item>
-  </ion-list>
-
+          <ion-text>
+            Nome: {{event.nome}} - 
+          </ion-text>
+          <ion-text>
+            Tema: {{event.tema}}- 
+          </ion-text>
+          <ion-text>
+            Data: {{event.data}}
+          </ion-text>
+          <ion-note> {{key}} </ion-note>
+        </ion-item>      
+    </ion-list>
 </ion-content>

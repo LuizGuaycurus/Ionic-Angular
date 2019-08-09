@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { EventoService } from 'src/app/services/evento.service';
 
 @Component({
@@ -10,8 +9,8 @@ import { EventoService } from 'src/app/services/evento.service';
 })
 export class PerfilEventoPage implements OnInit {
 
-  protected evento: any;
-  protected key: string;
+  protected evento:any;
+  private key:string;
 
   constructor(
     public eventoService: EventoService,
