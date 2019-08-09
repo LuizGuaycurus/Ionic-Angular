@@ -38,6 +38,7 @@ export class ListUsuarioPage implements OnInit {
     }
     
     atualizar(){
+      
     }
 
   ngOnInit() {

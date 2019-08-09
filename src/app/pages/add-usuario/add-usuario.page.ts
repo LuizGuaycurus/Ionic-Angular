@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { AngularFireAuth } from '@angular/fire/auth'
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 import { Usuario } from './../../model/usuario';
 import { UsuarioService } from './../../services/usuario.service';
+
 
 @Component({
   selector: 'app-add-usuario',

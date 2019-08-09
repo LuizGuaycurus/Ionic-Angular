@@ -19,7 +19,7 @@
   <ion-list *ngIf="eventos | async as events">
     <ion-item-sliding *ngFor="let event of events">
       <ion-item-options side="start">
-        <ion-item-option color="danger" expandable>
+        <ion-item-option color="danger" (click)="remover(event.key)" expandable>
             <ion-icon  name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
