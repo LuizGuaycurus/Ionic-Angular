@@ -51,7 +51,7 @@ export class AddUsuarioPage implements OnInit {
         this.afAuth.auth.createUserWithEmailAndPassword(this.usuario.email, this.usuario.pws)
           .then(
             res => {
-              //this.usuario.email = null;
+              this.usuario.email = null;
               this.usuario.pws = null;
               this.usuarioService.save(this.usuario, res.user.uid);
               this.presentAlert("Aviso", "Cadastrado!");
@@ -102,7 +102,7 @@ export class AddUsuarioPage implements OnInit {
   tirarFoto() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }

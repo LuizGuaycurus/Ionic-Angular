@@ -11,9 +11,18 @@
       <ion-input type="text" name="nome" [(ngModel)]="evento.nome" required></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item position="floating">
+        <ion-item>
+            <ion-label>Tema da festa</ion-label>
+            <ion-select value="Livre" okText="OK" cancelText="Cancelar" name="tema" [(ngModel)]="evento.tema" required>
+              <ion-select-option value="Livre">Tema Livre</ion-select-option>
+              <ion-select-option value="Fantasia">Festa Fantasia</ion-select-option>
+              <ion-select-option value="Pijama">Festa do Pijama</ion-select-option>
+              <ion-select-option value="Funk">Baile funk</ion-select-option>
+            </ion-select>
+          </ion-item>
       <ion-label position="floating">Tema da Festa</ion-label>
-      <ion-input type="text" name="tema" [(ngModel)]="evento.tema" required></ion-input>
+      <!-- <ion-input type="text" name="tema" [(ngModel)]="evento.tema" required></ion-input> -->
 
       <!-- <ion-text color="danger" *ngIf="e.invalid && e.dirty">
         <strong>Email Inválido</strong>
@@ -23,7 +32,7 @@
 
     <ion-item>
       <ion-label position="floating">Data da Festa</ion-label>
-      <ion-input type="text" name="data" [(ngModel)]="evento.data" required></ion-input>
+      <ion-input type="date" name="data" [(ngModel)]="evento.data" required></ion-input>
     </ion-item>
     <!-- <ion-text color="danger" *ngIf="p.invalid && p.dirty">
       <strong>Senha muito curta!</strong>
@@ -31,7 +40,7 @@
 
     <ion-item>
       <ion-label position="floating">Horário da Festa</ion-label>
-      <ion-input type="text" name="horario" [(ngModel)]="evento.horario" required></ion-input>
+      <ion-input type="time" name="horario" [(ngModel)]="evento.horario" required></ion-input>
     </ion-item>
 
     <ion-item lines="none">

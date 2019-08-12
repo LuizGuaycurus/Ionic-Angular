@@ -17,6 +17,7 @@ import { environment } from './../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    FormsModule, Camera, Geolocation
+    FormsModule, Camera, Geolocation, AndroidPermissions
   ],
   bootstrap: [AppComponent]
 })

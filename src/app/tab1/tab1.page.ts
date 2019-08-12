@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EventoService } from '../services/evento.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  protected eventos: any;
+
+  constructor(
+    public EventoService: EventoService,
+  ) {}
+
+  ngOnInit() {
+    this.eventos = this.EventoService.getAll();
+  }
 
 }

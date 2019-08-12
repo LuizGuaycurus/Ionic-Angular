@@ -71,6 +71,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addEvento/:key',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/add-evento/add-evento.module#AddEventoPageModule'
+          }
+        ]
+      },
+      {
         path: 'perfilEvento/:key',
         children: [
           {

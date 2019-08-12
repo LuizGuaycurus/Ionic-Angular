@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UsuarioService } from './../../services/usuario.service';
 import { AlertController } from '@ionic/angular';
-import { present } from '@ionic/core/dist/types/utils/overlays';
+
 
 @Component({
   selector: 'app-list-usuario',
