@@ -4,4 +4,5 @@ export class Evento {
     data: string;
     horario: string;
     local: string;
+    foto:string;
 }

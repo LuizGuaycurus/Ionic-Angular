@@ -7,16 +7,17 @@
 <ion-content>
   <ion-list *ngIf="evento | async as event">
     <ion-item>
-          <ion-text>
-            Nome: {{event.nome}} - 
-          </ion-text>
-          <ion-text>
-            Tema: {{event.tema}}- 
-          </ion-text>
-          <ion-text>
-            Data: {{event.data}}
-          </ion-text>
-          <ion-note> {{key}} </ion-note>
-        </ion-item>      
-    </ion-list>
+      <!-- <ap-photo *ngFor="let photo of photos" url="photo.url" description="photo.description"></ap-photo> -->
+      <ion-text>
+        Nome: {{event.nome}} -
+      </ion-text>
+      <ion-text>
+        Tema: {{event.tema}}-
+      </ion-text>
+      <ion-text>
+        Data: {{event.data}}
+      </ion-text>
+      <ion-note> {{key}} </ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>

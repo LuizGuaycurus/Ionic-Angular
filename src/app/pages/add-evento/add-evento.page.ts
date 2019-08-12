@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventoService } from 'src/app/services/evento.service';
 import { Evento } from 'src/app/model/evento';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-add-evento',
@@ -13,16 +14,19 @@ export class AddEventoPage implements OnInit {
 
   public evento: Evento;
   public key: string;
+  protected preview: any;
 
   constructor(
     public alertController: AlertController,
     public router: Router,
     public activeRouter: ActivatedRoute,
-    public eventoService: EventoService
+    public eventoService: EventoService,
+    private camera: Camera,
   ) { }
 
   ngOnInit() {
     this.evento = new Evento;
+    this.preview = null;
     this.key = this.activeRouter.snapshot.paramMap.get("key");
     if (this.key) {
       this.eventoService.get(this.key).subscribe(
@@ -82,6 +86,23 @@ export class AddEventoPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  tirarFoto() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.preview = base64Image;
+    }, (err) => {
+      // Handle error
+    });
   }
 
 }
